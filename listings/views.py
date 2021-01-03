@@ -38,7 +38,6 @@ def search(request):
         if city:
             queryset_list=queryset_list.filter(city__iexact=city)
     #state
-    #city
     if 'state' in request.GET:
         state=request.GET['state']
         if state:
@@ -51,8 +50,10 @@ def search(request):
     #price
     if 'price' in request.GET:
         price=request.GET['price']
+        print(queryset_list.query)
         if price:
             queryset_list=queryset_list.filter(price__lte=price)
+            print('ABCD2')
 
 
     context={

@@ -9,6 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+
 SECRET_KEY = 'c)ibm!2jcha$*@2sn)fo&$lpuhzb1kc^oo0pea9gc6pkgw0x%9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -24,6 +25,7 @@ INSTALLED_APPS = [
     'listings.apps.ListingsConfig',
     'realtors.apps.RealtorsConfig',
     'accounts.apps.AccountsConfig',
+    'contacts.apps.ContactsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -76,7 +78,9 @@ DATABASES = {
         'HOST':'localhost'
     }
 }
-
+AUTHENTICATION_BACKENDS = (
+    ('django.contrib.auth.backends.ModelBackend'),
+)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -131,3 +135,10 @@ from django.contrib.messages import constants as messages
 MESSAGE_TAGS={
     messages.ERROR:'danger'
 }
+
+#EMail config
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT=587
+EMAIL_HOST_USER='dracarys.csecu@gmail.com'
+EMAIL_HOST_PASSWORD=''
+EMAIL_USE_TLS=True
